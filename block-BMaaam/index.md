@@ -4,23 +4,23 @@ Insert the data present in users.json into local mongodb database using `mongoim
 
 Write aggregation queries to perform following tasks.
 
-1. Find all users who are active.
+1.  Find all users who are active.
+    > {$match:{isActive:"true"}}
+2.  Find all users whose name includes `blake` case insensitive.
+    > {$match:{name:"blake"}}
+3.  Find all males.
+    > {$match:{gender:"male"}}
+4.  Find all active males.
+    > $group: { gender: "male", isActive: "true" }
+5.  Find all active females whose age is >= 25.
+    > $group: { gender: "female", age:{$max:25} }
+6.  Find all 40+ males with green eyecolor.
 
-2. Find all users whose name includes `blake` case insensitive.
+7.  Find all blue eyed men working in 'USA'.
 
-3. Find all males.
+8.  Find all female working in Germany with green eyes and apple as favoriteFruit.
 
-4. Find all active males.
-
-5. Find all active females whose age is >= 25.
-
-6. Find all 40+ males with green eyecolor.
-
-7. Find all blue eyed men working in 'USA'.
-
-8. Find all female working in Germany with green eyes and apple as favoriteFruit.
-
-9. Count total male and females.
+9.  Count total male and females.
 
 10. Count all whose eyeColor is green.
 
